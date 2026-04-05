@@ -34,7 +34,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Привет! Я GrokLegion. Чем могу помочь?")
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Просто пиши мне что угодно. Я GrokLegion.")
+    await update.message.reply_text("Просто пиши мне что угодно.")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -65,7 +65,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(reply)
         else:
             await update.message.reply_text("Ошибка связи с Grok. Попробуй позже.")
-            logger.error(f"Grok API error: {response.status_code}")
 
     except Exception as e:
         logger.error(f"Error: {e}")
